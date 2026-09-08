@@ -42,5 +42,4 @@ def draw_game(tuple_location):
     flag_location()
     location_of_soldier(tuple_location)
     # starting_location(consts.img_solider, consts.flag_img)
-
     pygame.display.flip()
