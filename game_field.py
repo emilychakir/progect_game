@@ -16,7 +16,6 @@ board = make_board()
 
 
 def place_current_mine(tuple, board):
-    print(tuple)
     tuple_x = tuple[0]
     tuple_y = tuple[1]
 
@@ -79,7 +78,7 @@ def print_board():
 
 
 
-def mine_places(board):
+def mines_places():
     mine_places = []
     for x in range(consts.BOARD_ROWS):
         for y in range(consts.BOARD_COLS):
