@@ -27,7 +27,7 @@ def create_solider_legs():
             list_of_solider_leg_places.append(tup)
     return list_of_solider_leg_places
 def soldier_location():
-    location=[]
+    location = []
     x=player["position_x"]
     y=player["position_y"]
     location.append(x*CELL_SIZE)
