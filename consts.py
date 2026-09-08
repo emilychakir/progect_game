@@ -4,7 +4,7 @@ BOARD_ROWS = 25
 BOARD_COLS = 50
 E = "E"
 M = "M"
-BACKGROUND_COLOR = (129,199,132)
+BACKGROUND_COLOR = (0,100,0)
 
 CELL_SIZE = 20 # pixels per cell
 WINDOW_WIDTH = BOARD_COLS * CELL_SIZE
@@ -30,6 +30,10 @@ SOLDIER_FEET_ROWS = 1 # the lower part
 MINES_COUNT = 20
 MINE_ROWS = 1
 MINE_COLS = 3
+
+bush_img=pygame.image.load('grass.png')
+img_soldier=pygame.image.load('soldier.png')
+flag_img=pygame.image.load('flag.png')
 
 
 #bush

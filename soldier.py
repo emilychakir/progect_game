@@ -1,4 +1,5 @@
 import consts
+from consts import CELL_SIZE
 
 player = {
         "position_x": 0,
@@ -25,6 +26,17 @@ def create_solider_legs():
             tup = (x, y)
             list_of_solider_leg_places.append(tup)
     return list_of_solider_leg_places
+def soldier_location():
+    location = []
+    x=player["position_x"]
+    y=player["position_y"]
+    location.append(x*CELL_SIZE)
+    location.append(y*CELL_SIZE)
+    return tuple(location)
+
+
+
+
 
 
 
