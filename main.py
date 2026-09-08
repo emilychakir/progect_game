@@ -10,7 +10,7 @@ def main():
     pygame.init()
     while True:
         screen.draw_bush(consts.bush_img)
-        screen.draw_starting_location(consts.img_solider,consts.flag_img)
+        screen.starting_location(consts.img_solider,consts.flag_img)
         for event in pygame.event.get():
             if event.type==pygame.quit():
                 pygame.quit()
