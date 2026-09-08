@@ -3,6 +3,7 @@ from sys import exit
 from screen import draw_bush, make_screen
 import consts
 import soldier
+import game_field
 
 state = {
     "is_window_open": True,
@@ -34,7 +35,7 @@ def main():
     clock=pygame.time.Clock()
     soldier_body=soldier.create_solider_body()
     soldier_legs=soldier.create_solider_legs()
-    mines=
+
     while True:
         screen.draw_bush(consts.bush_img)
         screen.starting_location(consts.img_solider,consts.flag_img)
