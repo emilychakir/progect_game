@@ -1,20 +1,28 @@
 import  pygame
-
 import consts
-
+import random
+import  game_field
 screen = pygame.display.set_mode(
         (consts.WINDOW_WIDTH, consts.WINDOW_HEIGHT))
 
 
 
 def draw_bush(bush_img):
+        counter = 0
+        while counter < 20:
+                rand_x = random.randint(0, consts.BOARD_ROWS - 1)
+                rand_y = random.randint(0, consts.BOARD_COLS - 3)
+                print(rand_x)
+                print(rand_y)
+                tup = (rand_x, rand_y)
+                if tup not in game_field.places_with_flag() and tup not in game_field.starting_pos_soldier() and game_field.place_current_mine(tup,game_field.board) != False:
+                        counter += 1
+                        display_surface = pygame.display.set_mode((consts.bush_ROWS,consts.bush_COLS))
+                        display_surface.blit(bush_img,(consts.bush_ROWS,consts.bush_COLS))
+                        pygame.display.flip()
 
-        display_surface = pygame.display.set_mode((consts.bush_ROWS,consts.bush_COLS))
-        display_surface.blit(bush_img,(consts.bush_ROWS,consts.bush_COLS))
-        pygame.display.flip()
 
-
-def starting_location(img_solider,img_flag):
+def draw_starting_location(img_solider,img_flag):
         # creating the display surface
         display_surface_flag = pygame.display.set_mode((consts.flag_row,consts.flag_col))
         display_surface_solider = pygame.display.set_mode((consts.flag_row, consts.flag_col))
@@ -28,3 +36,9 @@ def starting_location(img_solider,img_flag):
 
         # updating the display
         pygame.display.flip()
+def draw_matrix()
+
+def draw_game():
+    screen.fill(consts.BACKGROUND_COLOR)
+
+    pygame.display.flip()
