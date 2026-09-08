@@ -1,6 +1,7 @@
 import  pygame
 import random
 import consts
+import game_field
 
 screen = pygame.display.set_mode(
         (consts.WINDOW_WIDTH, consts.WINDOW_HEIGHT))
@@ -34,10 +35,16 @@ def flag_location():
 
 def location_of_soldier(location):
     screen.blit(consts.soldier, (location[0], location[1]))
+def draw_matrix(board1):
+    for r in range(consts.BOARD_ROWS):
+        for c in range(consts.BOARD_COLS):
+            pygame.draw.rect(board1,(144, 238, 144),(c*consts.CELL_SIZE,r*consts.CELL_SIZE,consts.CELL_SIZE,consts.CELL_SIZE),1)
 
-def draw_game():
+def draw_game(tuple_location):
     draw_background()
+    draw_matrix(game_field.board1)
     draw_bush(location)
     flag_location()
+    location_of_soldier(tuple_location)
     # starting_location(consts.img_solider, consts.flag_img)
     pygame.display.flip()
