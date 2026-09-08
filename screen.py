@@ -8,7 +8,6 @@ screen = pygame.display.set_mode(
 def draw_background():
         screen.fill(consts.BACKGROUND_COLOR)
 
-
 def locations():
     location = []
     for i in range(20):
