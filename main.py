@@ -31,16 +31,12 @@ def check_touch_mines(legs, mines):
     return False
 
 
-
-def touch_mine():
-    return
 def main():
     pygame.init()
+    screen.draw_bush(consts.bush_img)
+    screen.starting_location(consts.img_solider, consts.flag_img)
     while state["is_window_open"]:
-        screen.draw_bush(consts.bush_img)
-        screen.starting_location(consts.img_solider,consts.flag_img)
-        #draw all our elemnts
-        #update everything
+        screen.draw_game()
 
 
 

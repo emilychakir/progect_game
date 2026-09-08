@@ -28,3 +28,9 @@ def starting_location(img_solider,img_flag):
 
         # updating the display
         pygame.display.flip()
+
+def draw_game():
+    screen.fill(consts.BACKGROUND_COLOR)
+    draw_bush(consts.bush_img)
+    starting_location(consts.img_solider, consts.flag_img)
+    pygame.display.flip()
