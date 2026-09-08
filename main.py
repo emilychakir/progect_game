@@ -40,10 +40,10 @@ def handle_user_events():
 
 
 pygame.display.set_caption('the flag')
-flags = game_field.places_with_flag()
-body = soldier.create_solider_body()
-legs = soldier.create_solider_legs()
-mines = game_field.mines_places()
+# flags = game_field.places_with_flag()
+# body = soldier.create_solider_body()
+# legs = soldier.create_solider_legs()
+# mines = game_field.mines_places()
 
 def check_touch_flag(body, flags):
     for body_place in body:
@@ -66,6 +66,10 @@ def main():
     while state["is_window_open"]:
         handle_user_events()
         screen.draw_game(soldier.soldier_location())
+        if check_touch_flag(soldier.create_solider_body(), game_field.places_with_flag()):
+            print("you won")
+        if check_touch_mines(soldier.create_solider_legs(), game_field.mines_places()):
+            print("you lost")
 
 
 
