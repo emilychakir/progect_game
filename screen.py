@@ -1,6 +1,7 @@
 import  pygame
 import random
 import consts
+import soldier
 
 screen = pygame.display.set_mode(
         (consts.WINDOW_WIDTH, consts.WINDOW_HEIGHT))
@@ -28,17 +29,18 @@ def draw_bush(locations):
         screen.blit(consts.bush, (x, y))
 
 
-
 def flag_location():
         screen.blit(consts.flag, (consts.flag_loc_x,  consts.flag_loc_y))
+
 
 def location_of_soldier(location):
     screen.blit(consts.soldier, (location[0], location[1]))
 
-def draw_game():
+def draw_game(tuple_location):
     draw_background()
     draw_bush(location)
     flag_location()
+    location_of_soldier(tuple_location)
     # starting_location(consts.img_solider, consts.flag_img)
 
     pygame.display.flip()
