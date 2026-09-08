@@ -4,7 +4,7 @@ import random
 import game_field
 from consts import CELL_SIZE
 def make_screen():
-        screen = pygame.display.set_mode(
+        screen=pygame.display.set_mode(
                 (consts.WINDOW_WIDTH, consts.WINDOW_HEIGHT))
         return screen
 
