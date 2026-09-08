@@ -21,7 +21,6 @@ def place_current_mine(tuple, board):
     tuple_y = tuple[1]
 
     if board[tuple_x][tuple_y] == consts.E and board[tuple_x][tuple_y + 1] == consts.E and board[tuple_x][tuple_y + 2] == consts.E:
-        print("asdasdsda")
         for i in range(consts.MINE_COLS):
             board[tuple_x][tuple_y + i] = consts.M
         return board
@@ -63,8 +62,6 @@ def place_mines(places_of_flag, places_of_soldier):
     while counter < 20:
         rand_x = random.randint(0, consts.BOARD_ROWS - 1)
         rand_y = random.randint(0, consts.BOARD_COLS - 3)
-        print(rand_x)
-        print(rand_y)
         tup = (rand_x, rand_y)
         if tup not in places_of_soldier and tup not in places_of_flag and place_current_mine(tup, board) != False:
             counter += 1
@@ -82,4 +79,14 @@ def print_board():
 
 print_board()
 
-print(places_of_flag)
+def mine_places(board):
+    mine_places = []
+    for x in range(consts.BOARD_ROWS):
+        for y in range(consts.BOARD_COLS):
+            if board[x][y] == consts.M:
+                tup = (x, y)
+                mine_places.append(tup)
+    return mine_places
+
+
+
