@@ -27,3 +27,7 @@ MINES_COUNT = 20
 MINE_ROWS = 1
 MINE_COLS = 3
 
+bush_COUNT = 20
+bush_ROWS = 1
+bush_COLS = 3
+
