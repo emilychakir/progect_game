@@ -10,7 +10,8 @@ def draw_background():
 def locations():
     location = []
     for i in range(20):
-        return location
+
+    return location
 def draw_bush():
     x = random.randint(0 + 30, consts.WINDOW_WIDTH - 30)
     y = random.randint(0 + 20, consts.WINDOW_HEIGHT - 20)
