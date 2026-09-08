@@ -1,8 +1,8 @@
 
 BOARD_ROWS = 25
 BOARD_COLS = 50
-E = "empty"
-M = "mine"
+E = "E"
+M = "M"
 
 CELL_SIZE = 20 # pixels per cell
 WINDOW_WIDTH = BOARD_COLS * CELL_SIZE
@@ -15,6 +15,8 @@ flag_row = BOARD_ROWS - FLAG_ROWS
 flag_col = BOARD_COLS - FLAG_COLS
 
 # soldier
+# STARTING_POS_X = 0
+# STARTING_POS_Y = 0
 SOLDIER_ROWS = 4
 SOLDIER_COLS = 2
 SOLDIER_BODY_ROWS = 3 # the upper part
