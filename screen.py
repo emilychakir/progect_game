@@ -1,10 +1,15 @@
 import  pygame
 import consts
 import random
-import  game_field
-screen = pygame.display.set_mode(
-        (consts.WINDOW_WIDTH, consts.WINDOW_HEIGHT))
+import game_field
+from consts import CELL_SIZE
+def make_screen():
+        screen = pygame.display.set_mode(
+                (consts.WINDOW_WIDTH, consts.WINDOW_HEIGHT))
+        return screen
 
+def draw_background(screen):
+        screen.fill(consts.BACKGROUND_COLOR)
 
 
 def draw_bush(bush_img):
@@ -36,7 +41,12 @@ def draw_starting_location(img_solider,img_flag):
 
         # updating the display
         pygame.display.flip()
-def draw_matrix()
+
+def draw_matrix(board1, light_green=None):
+        for r in range(consts.BOARD_ROWS):
+                for c in range(consts.BOARD_COLS):
+                        pygame.draw.rect(board1,light_green,(c*CELL_SIZE, r*CELL_SIZE,CELL_SIZE,CELL_SIZE),1)
+
 
 def draw_game():
     screen.fill(consts.BACKGROUND_COLOR)
