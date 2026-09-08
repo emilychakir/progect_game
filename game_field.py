@@ -77,7 +77,7 @@ def print_board():
         print(board[i])
         print()
 
-print_board()
+
 
 def mine_places(board):
     mine_places = []
@@ -87,6 +87,10 @@ def mine_places(board):
                 tup = (x, y)
                 mine_places.append(tup)
     return mine_places
+
+
+def return_board():
+    return place_mines(places_of_flag, soldier_location)
 
 
 
