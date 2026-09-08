@@ -5,6 +5,7 @@ BOARD_COLS = 50
 E = "E"
 M = "M"
 BACKGROUND_COLOR = (0,100,0)
+color_line=(144, 238, 144)
 
 CELL_SIZE = 20 # pixels per cell
 WINDOW_WIDTH = BOARD_COLS * CELL_SIZE

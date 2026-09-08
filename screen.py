@@ -1,6 +1,7 @@
 import  pygame
 import random
 import consts
+from consts import CELL_SIZE
 
 screen = pygame.display.set_mode(
         (consts.WINDOW_WIDTH, consts.WINDOW_HEIGHT))
@@ -34,6 +35,11 @@ def flag_location():
 
 def location_of_soldier(location):
     screen.blit(consts.soldier, (location[0], location[1]))
+
+def draw_matrix(board1, color_line):
+    for r in range(consts.BOARD_ROWS):
+        for c in range(consts.BOARD_COLS):
+            pygame.draw.rect(board1,(144, 238, 144),(c*CELL_SIZE,r*CELL_SIZE,CELL_SIZE,CELL_SIZE),1)
 
 def draw_game():
     draw_background()
