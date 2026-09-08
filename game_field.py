@@ -91,5 +91,5 @@ def mines_places():
 def return_board():
     return place_mines(places_of_flag, soldier_location)
 
-
+board1=return_board()
 

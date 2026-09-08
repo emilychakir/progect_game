@@ -1,36 +1,30 @@
 import  pygame
-
+import random
 import consts
 
 screen = pygame.display.set_mode(
         (consts.WINDOW_WIDTH, consts.WINDOW_HEIGHT))
 
+def draw_background():
+        screen.fill(consts.BACKGROUND_COLOR)
+
+def draw_bush():
+    x = random.randint(0 + 30, consts.WINDOW_WIDTH - 30)
+    y = random.randint(0 + 20, consts.WINDOW_HEIGHT - 20)
+    screen.blit(consts.bush, (x, y))
 
 
-def draw_bush(bush_img):
-
-        display_surface = pygame.display.set_mode((consts.bush_ROWS,consts.bush_COLS))
-        display_surface.blit(bush_img,(consts.bush_ROWS,consts.bush_COLS))
-        pygame.display.flip()
 
 
-def starting_location(img_solider,img_flag):
-        # creating the display surface
-        display_surface_flag = pygame.display.set_mode((consts.flag_row,consts.flag_col))
-        display_surface_solider = pygame.display.set_mode((consts.flag_row, consts.flag_col))
-        # putting our first image surface on
-        # display surface
-        display_surface_solider.blit(img_solider, (0, 0))
+def flag_location():
+        screen.blit(consts.flag, (consts.flag_loc_x,  consts.flag_loc_y))
 
-        # putting our second image surface on
-        # display surface
-        display_surface_flag.blit(img_flag, (300, 300))
 
-        # updating the display
-        pygame.display.flip()
 
 def draw_game():
-    screen.fill(consts.BACKGROUND_COLOR)
-    draw_bush(consts.bush_img)
-    starting_location(consts.img_solider, consts.flag_img)
+    draw_background()
+    draw_bush()
+    flag_location()
+    # starting_location(consts.img_solider, consts.flag_img)
+
     pygame.display.flip()
