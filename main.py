@@ -1,14 +1,33 @@
 import pygame.display
 from sys import exit
-from screen import draw_bush, make_screen
+import screen
+import screen
 import consts
-import soldier
 import game_field
-
+import soldier
+Screen = screen.screen
 state = {
     "is_window_open": True,
     # "state": consts.RUNNING_STATE
 }
+
+def handle_user_events():
+    for event in pygame.event.get():
+
+        if event.type == pygame.QUIT:
+            state["is_window_open"] = False
+
+        elif event.type == pygame.KEYUP:
+            soldier.player["position_x"] -= 1
+
+        elif event.type == pygame.KEYDOWN:
+            soldier.player["position_x"] += 1
+
+        elif event.type == pygame.K_LEFT:
+            soldier.player["position_y"] -= 1
+
+        elif event.type == pygame.K_RIGHT :
+            soldier.player["position_y"] += 1
 
 
 pygame.display.set_caption('the flag')
@@ -29,44 +48,21 @@ def check_touch_mines(legs, mines):
             return True
     return False
 
-def main():
-    pygame.init()
-    screen=make_screen()
-    clock=pygame.time.Clock()
-    soldier_body=soldier.create_solider_body()
-    soldier_legs=soldier.create_solider_legs()
 
-    while True:
-        screen.draw_bush(consts.bush_img)
-        screen.starting_location(consts.img_solider,consts.flag_img)
-        for event in pygame.event.get():
-            if event.type==pygame.quit():
-                pygame.quit()
-                exit()
-        #draw all our elemnts
-        #update everything
+def main():
+
+    pygame.init()
+
+
+    while state["is_window_open"]:
+        handle_user_events()
+        screen.draw_game()
 
 
 
 if __name__ == '__main__':
     main()
 
-def handle_user_events():
-    for event in pygame.event.get():
 
-        if event.type == pygame.QUIT:
-            state["is_window_open"] = False
-
-        elif event.type == pygame.KEYUP:
-            soldier.player["position_x"] -= 1
-
-        elif event.type == pygame.KEYDOWN:
-            soldier.player["position_x"] += 1
-
-        elif event.type == pygame.K_LEFT:
-            soldier.player["position_y"] -= 1
-
-        elif event.type == pygame.K_RIGHT :
-            soldier.player["position_y"] += 1
 
 
