@@ -1,14 +1,29 @@
 import consts
 
-solider_mat = []
+player = {
+    "Player": {
+        "position_x": 0,
+        "position_y": 0,
+        "health": 3
+    }
+}
 
-def create():
-    global solider_grid
-    solider_mat = []
-    for col in range(consts.SOLDIER_BODY_ROWS,consts.SOLDIER_BODY_ROWS+ consts.SOLDIER_BODY_ROWS):
-        for row in range(consts.SOLDIER_COLS):
-                # create each cell as instance of Cell,
-                # with the concatenated col and row numbers
-                # as the name, then add the cell.name to cell_list
-                cell = Cell(str(col) + '_' + str(row))
-                solider_grid.append(cell.name)
+def create_solider_body():
+    list_of_solider_body_places = []
+    x_solider = consts.SOLDIER_BODY_ROWS
+    y_solider = consts.SOLDIER_COLS
+    for x in range(x_solider, x_solider + consts.SOLDIER_ROWS):
+        for y in range(y_solider, y_solider + consts.SOLDIER_COLS):
+            tup = (x, y)
+            list_of_solider_body_places.append(tup)
+    return list_of_solider_body_places
+
+def create_solider_legs():
+    list_of_solider_leg_places = []
+    x_solider = consts.SOLDIER_FEET_ROWS
+    y_solider = consts.SOLDIER_COLS
+    for x in range(x_solider, x_solider + consts.SOLDIER_ROWS):
+        for y in range(y_solider, y_solider + consts.SOLDIER_COLS):
+            tup = (x, y)
+            list_of_solider_leg_places.append(tup)
+    return list_of_solider_leg_places

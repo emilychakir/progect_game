@@ -1,3 +1,4 @@
+import pygame.image
 
 BOARD_ROWS = 25
 BOARD_COLS = 50
@@ -27,7 +28,4 @@ MINES_COUNT = 20
 MINE_ROWS = 1
 MINE_COLS = 3
 
-bush_COUNT = 20
-bush_ROWS = 1
-bush_COLS = 3
 
