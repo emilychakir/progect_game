@@ -28,4 +28,13 @@ MINES_COUNT = 20
 MINE_ROWS = 1
 MINE_COLS = 3
 
+bush_COUNT = 20
+bush_ROWS = 1
+bush_COLS = 3
+
+
+
+bush_img = pygame.image.load('grass.png')
+img_solider=pygame.image.load('soldier.png')
+flag_img=pygame.image.load('mine.png')
 
