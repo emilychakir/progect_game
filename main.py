@@ -52,8 +52,6 @@ def check_touch_mines(legs, mines):
 def main():
 
     pygame.init()
-
-
     while state["is_window_open"]:
         handle_user_events()
         screen.draw_game()

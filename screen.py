@@ -7,7 +7,10 @@ screen = pygame.display.set_mode(
 
 def draw_background():
         screen.fill(consts.BACKGROUND_COLOR)
+def locations():
+    for i in range(20):
 
+    return location
 def draw_bush():
     x = random.randint(0 + 30, consts.WINDOW_WIDTH - 30)
     y = random.randint(0 + 20, consts.WINDOW_HEIGHT - 20)
