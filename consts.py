@@ -1,6 +1,8 @@
 
 BOARD_ROWS = 25
 BOARD_COLS = 50
+E = "empty"
+M = "mine"
 
 CELL_SIZE = 20 # pixels per cell
 WINDOW_WIDTH = BOARD_COLS * CELL_SIZE
@@ -22,3 +24,4 @@ SOLDIER_FEET_ROWS = 1 # the lower part
 MINES_COUNT = 20
 MINE_ROWS = 1
 MINE_COLS = 3
+
