@@ -8,7 +8,7 @@ import soldier
 Screen = screen.screen
 state = {
     "is_window_open": True,
-    # "state": consts.RUNNING_STATE
+# "state": consts.RUNNING_STATE
 }
 
 def handle_user_events():
@@ -16,18 +16,31 @@ def handle_user_events():
 
         if event.type == pygame.QUIT:
             state["is_window_open"] = False
-
-        elif event.type == pygame.KEYUP:
-            soldier.player["position_x"] -= 1
-
         elif event.type == pygame.KEYDOWN:
-            soldier.player["position_x"] += 1
 
-        elif event.type == pygame.K_LEFT:
-            soldier.player["position_y"] -= 1
+            if event.key == pygame.K_UP:
+                if soldier.player["position_y"] >=  1:
+                    soldier.player["position_y"] -= 1
+                    print("moved up")
 
-        elif event.type == pygame.K_RIGHT :
-            soldier.player["position_y"] += 1
+            elif event.key == pygame.K_DOWN:
+                if soldier.player["position_y"] < consts.BOARD_COLS - 1:
+                    soldier.player["position_y"] += 1
+                    print("moved right")
+
+
+
+            elif event.key == pygame.K_LEFT:
+                if soldier.player["position_x"] >= 1:
+                    soldier.player["position_x"] -= 1
+                    print("moved left")
+
+
+            elif event.key == pygame.K_RIGHT:
+                if soldier.player["position_x"] < consts.BOARD_COLS - 1:
+                 soldier.player["position_x"] += 1
+                 print("moved down")
+
 
 
 pygame.display.set_caption('the flag')
@@ -56,7 +69,7 @@ def main():
 
     while state["is_window_open"]:
         handle_user_events()
-        screen.draw_game()
+        screen.draw_game(soldier.soldier_location())
 
 
 
