@@ -21,25 +21,21 @@ def handle_user_events():
             if event.key == pygame.K_UP:
                 if soldier.player["position_y"] >=  1:
                     soldier.player["position_y"] -= 1
-                    print("moved up")
 
             elif event.key == pygame.K_DOWN:
                 if soldier.player["position_y"] < consts.BOARD_COLS - 1:
                     soldier.player["position_y"] += 1
-                    print("moved right")
 
 
 
             elif event.key == pygame.K_LEFT:
                 if soldier.player["position_x"] >= 1:
                     soldier.player["position_x"] -= 1
-                    print("moved left")
 
 
             elif event.key == pygame.K_RIGHT:
                 if soldier.player["position_x"] < consts.BOARD_COLS - 1:
                  soldier.player["position_x"] += 1
-                 print("moved down")
 
 
 
