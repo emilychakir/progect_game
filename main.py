@@ -18,16 +18,19 @@ def handle_user_events():
             state["is_window_open"] = False
 
         elif event.type == pygame.KEYUP:
-            soldier.player["position_x"] -= 1
+
+                soldier.player["position_x"] -= 1
 
         elif event.type == pygame.KEYDOWN:
             soldier.player["position_x"] += 1
 
         elif event.type == pygame.K_LEFT:
-            soldier.player["position_y"] -= 1
+            if soldier.player["position_y"] >= 1:
+                soldier.player["position_y"] -= 1
 
-        elif event.type == pygame.K_RIGHT :
-            soldier.player["position_y"] += 1
+        elif event.type == pygame.K_RIGHT:
+            if soldier.player["position_y"] >= 1:
+                soldier.player["position_y"] += 1
 
 
 pygame.display.set_caption('the flag')
