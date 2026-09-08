@@ -40,5 +40,4 @@ def draw_game():
     draw_bush(location)
     flag_location()
     # starting_location(consts.img_solider, consts.flag_img)
-
     pygame.display.flip()
