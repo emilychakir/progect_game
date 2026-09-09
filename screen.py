@@ -52,7 +52,7 @@ def draw_message(message, font_size, color, location):
     font = pygame.font.SysFont(consts.FONT_NAME, font_size)
     text_img = font.render(message, True, color)
     screen.blit(text_img, location)
-def draw_matrix(board1):
+def draw_matrix():
         screen.fill((0, 0, 0))
         for r in range(consts.BOARD_ROWS):
             for c in range(consts.BOARD_COLS):
