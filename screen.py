@@ -40,11 +40,13 @@ def location_of_soldier(location):
 
 
 def draw_lose_message():
+    pygame.time.set_timer(pygame.USEREVENT + 1, 3000)
     draw_message("you lost", consts.LOSE_FONT_SIZE,
                  consts.LOSE_COLOR, consts.LOSE_LOCATION)
 
 
 def draw_win_message():
+    pygame.time.set_timer(pygame.USEREVENT + 1, 3000)
     draw_message("you won", consts.WIN_FONT_SIZE,
                  consts.WIN_COLOR, consts.WIN_LOCATION)
 

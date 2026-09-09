@@ -51,7 +51,7 @@ def handle_user_events():
             elif event.key == pygame.K_RIGHT:
                 if soldier.player["position_x"] < consts.BOARD_COLS - consts.SOLDIER_COLS:
                  soldier.player["position_x"] += 1
-            elif event.key == pygame.K_RIGHT:
+            elif event.key == pygame.K_KP_ENTER:
                 screen.draw_matrix()
                 pygame.time.wait(1000)
 
@@ -78,6 +78,7 @@ def check_touch_mines(legs, mines):
 #     if soldier.player["position_x"]+1>consts.BOARD_COLS:
 
 
+
 def main():
 
     pygame.init()
@@ -86,6 +87,8 @@ def main():
     while state["is_window_open"]:
         handle_user_events()
         screen.draw_game(soldier.soldier_location(), state)
+
+
 
 
 
