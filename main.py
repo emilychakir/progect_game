@@ -19,11 +19,14 @@ state = {
 }
 
 def handle_user_events():
-    if check_touch_flag(soldier.create_solider_body(), game_field.places_with_flag()):
-        state["living"] = False
-    if check_touch_mines(soldier.create_solider_legs(), game_field.mines_places()):
-        state["win"] = True
+
     for event in pygame.event.get():
+        print(soldier.create_solider_body())
+        print(game_field.places_with_flag())
+        if check_touch_flag(soldier.create_solider_body(), game_field.places_with_flag()):
+            state["win"] = True
+        if check_touch_mines(soldier.create_solider_legs(), game_field.mines_places()):
+            state["living"] = False
 
         if event.type == pygame.QUIT:
             state["is_window_open"] = False
@@ -34,7 +37,7 @@ def handle_user_events():
                     soldier.player["position_y"] -= 1
 
             elif event.key == pygame.K_DOWN:
-                if soldier.player["position_y"] < consts.BOARD_ROWS - 1:
+                if soldier.player["position_y"] < consts.BOARD_ROWS - consts.SOLDIER_ROWS:
                     soldier.player["position_y"] += 1
 
 
@@ -46,7 +49,7 @@ def handle_user_events():
 
 
             elif event.key == pygame.K_RIGHT:
-                if soldier.player["position_x"] < consts.BOARD_COLS - 1:
+                if soldier.player["position_x"] < consts.BOARD_COLS - consts.SOLDIER_COLS:
                  soldier.player["position_x"] += 1
             elif event.key == pygame.K_RIGHT:
                 screen.draw_matrix()
@@ -82,7 +85,7 @@ def main():
 
     while state["is_window_open"]:
         handle_user_events()
-        screen.draw_game(soldier.soldier_location())
+        screen.draw_game(soldier.soldier_location(), state)
 
 
 
