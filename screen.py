@@ -81,7 +81,7 @@ def draw_game(tuple_location, state):
     flag_location()
     if not state["living"]:
         draw_lose_message()
-    elif state["win"]:
+    if state["win"]:
         draw_win_message()
 
 

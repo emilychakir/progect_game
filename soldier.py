@@ -19,8 +19,8 @@ def create_solider_body():
 
 def create_solider_legs():
     list_of_solider_leg_places = []
-    x_solider = player["position_x"]
-    y_solider = player["position_y"] + consts.SOLDIER_BODY_ROWS
+    y_solider = player["position_x"]
+    x_solider = player["position_y"] + consts.SOLDIER_BODY_ROWS
     for x in range(x_solider, x_solider + consts.SOLDIER_FEET_ROWS):
         for y in range(y_solider, y_solider + consts.SOLDIER_COLS):
             tup = (x, y)
