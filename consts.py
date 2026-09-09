@@ -51,7 +51,7 @@ MINE_COLS = 3
 Welcome_text="Welcome to The Flag game. Have Fun!"
 message_font="Calibri"
 message_FONT_SIZE = 20
-message_LOCATION = (0,0)
+message_LOCATION = (30, 0)
 
 #bush
 bush_ROWS = 1

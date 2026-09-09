@@ -3,8 +3,7 @@ from consts import CELL_SIZE
 
 player = {
         "position_x": 0,
-        "position_y": 0,
-        "health": 3
+        "position_y": 0
 }
 
 def create_solider_body():

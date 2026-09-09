@@ -95,4 +95,3 @@ def return_board():
 
 board1=return_board()
 
-print((mines_places()))

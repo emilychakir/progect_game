@@ -55,7 +55,7 @@ def draw_win_message():
                  consts.WIN_COLOR, consts.WIN_LOCATION )
 
 def draw_welcome_message():
-        draw_message("Welcome to The Flag game. Have Fun!", consts.message_FONT_SIZE,
+        draw_message("Welcome to The Flag game.\nHave Fun!", consts.message_FONT_SIZE,
                      consts.message_COLOR, consts.message_LOCATION, )
 
 
@@ -71,13 +71,7 @@ def draw_matrix():
     screen.fill((0, 0, 0))
     for r in range(consts.BOARD_ROWS):
         for c in range(consts.BOARD_COLS):
-            pygame.draw.rect(screen,
-                             (144, 238, 144),
-                             (c * consts.CELL_SIZE,
-                              r * consts.CELL_SIZE,
-                              consts.CELL_SIZE,
-                              consts.CELL_SIZE),
-                             1)
+            pygame.draw.rect(screen,(144, 238, 144),(c * consts.CELL_SIZE,r * consts.CELL_SIZE, consts.CELL_SIZE,consts.CELL_SIZE),1)
     mine_places = []
     mines = game_field.mines_places()
     for g in range(len(mines)):

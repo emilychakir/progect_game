@@ -15,7 +15,6 @@ state = {
     "is_window_open": True,
     "living" : True,
     "win" : False,
-    "current_screen" : Screen
 # "state": consts.RUNNING_STATE
 }
 
