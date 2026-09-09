@@ -95,7 +95,7 @@ def handle_user_events():
 
 def check_time():
     if state["time_elapsed"]>1:
-        state["long_or_short"]="long"
+        state["long_or_short"] = "long"
     else:
         state["long_or_short"]="short"
 
