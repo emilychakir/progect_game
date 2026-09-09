@@ -54,6 +54,10 @@ def draw_win_message():
     draw_message("you won", consts.WIN_FONT_SIZE,
                  consts.WIN_COLOR, consts.WIN_LOCATION, )
 
+def draw_welcome_message():
+        draw_message("Welcome to The Flag game. Have Fun!", consts.message_FONT_SIZE,
+                     consts.message_COLOR, consts.message_LOCATION, )
+
 
 
 def draw_message(message, font_size, color, location):
@@ -90,6 +94,8 @@ def draw_game(tuple_location, state):
     draw_background()
     draw_bush(location)
     flag_location()
+    draw_welcome_message()
+
     location_of_soldier(tuple_location)
     if not state["living"]:
         draw_lose_message()
