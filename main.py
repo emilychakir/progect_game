@@ -15,7 +15,7 @@ state = {
     "is_window_open": True,
     "living" : True,
     "win" : False,
-    "curren_screen":Screen
+    "current_screen" : Screen
 # "state": consts.RUNNING_STATE
 }
 
@@ -53,13 +53,14 @@ def handle_user_events():
             elif event.key == pygame.K_RIGHT:
                 if soldier.player["position_x"] < consts.BOARD_COLS - consts.SOLDIER_COLS:
                  soldier.player["position_x"] += 1
-
-            # elif event.key == pygame.K_KP_ENTER:
-            #     if player["curren_screen"]=Screen:
             #
-            #     curren_screen=screen.draw_matrix()
-            #     pygame.display.flip()
-            #     pygame.time.wait(1000)
+            elif event.key == pygame.K_RETURN:
+                print("sdfdf")
+                screen.draw_matrix()
+                screen.location_of_night_soldier(soldier.soldier_location())
+                pygame.display.flip()
+                pygame.time.wait(1000)
+
 
 pygame.display.set_caption('the flag')
 # flags = game_field.places_with_flag()
@@ -90,8 +91,6 @@ def main():
     while state["is_window_open"]:
         handle_user_events()
         screen.draw_game(soldier.soldier_location(), state)
-
-
 
 
 

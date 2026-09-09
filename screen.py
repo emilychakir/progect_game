@@ -38,25 +38,25 @@ def location_of_soldier(location):
     screen.blit(consts.soldier, (location[0], location[1]))
 
 
+def location_of_night_soldier(location):
+    screen.blit(consts.night_soldier, (location[0], location[1]))
+
+
 
 def draw_lose_message():
 
     draw_message("you lost", consts.LOSE_FONT_SIZE,
-                 consts.LOSE_COLOR, consts.LOSE_LOCATION)
+                 consts.LOSE_COLOR, consts.LOSE_LOCATION, )
 
 
 
 def draw_win_message():
     draw_message("you won", consts.WIN_FONT_SIZE,
-                 consts.WIN_COLOR, consts.WIN_LOCATION)
-
-def draw_welcome_message():
-    draw_message("Welcome to The Flag game. Have Fun!", consts.message_FONT_SIZE,
-                    consts.message_COLOR, consts.message_LOCATION,)
+                 consts.WIN_COLOR, consts.WIN_LOCATION, )
 
 
 
-def draw_message(message, font_size, color, location,):
+def draw_message(message, font_size, color, location):
     font = pygame.font.SysFont(consts.FONT_NAME, font_size)
     text_img = font.render(message, True, color)
     screen.blit(text_img, location)
@@ -74,21 +74,22 @@ def draw_matrix():
                               consts.CELL_SIZE,
                               consts.CELL_SIZE),
                              1)
-    for mine in range(len(game_field.mines_places())):
-        mine= game_field.mines_places[mine]
-        pygame.draw.rect(screen,
-                         (136, 8, 8),
-                         (mine[0] * consts.CELL_SIZE,
-                          mine[1] * consts.CELL_SIZE,
-                          consts.CELL_SIZE,
-                          consts.CELL_SIZE),
-                         )
+    mine_places = []
+    mines = game_field.mines_places()
+    for g in range(len(mines)):
+        if g % 3 == 0:
+            mine_places.append(mines[g])
+    print(len(mine_places))
+    for i in range(len(mine_places)):
+        mine = mine_places[i]
+        screen.blit(consts.mine, (mine[1] * consts.CELL_SIZE, mine[0] * consts.CELL_SIZE))
+        pygame.display.flip()
+        # pygame.draw.rect(screen,(136, 8, 8),(mine[1] * consts.CELL_SIZE,mine[0] * consts.CELL_SIZE, consts.CELL_SIZE, consts.CELL_SIZE))
 
 def draw_game(tuple_location, state):
     draw_background()
     draw_bush(location)
     flag_location()
-    draw_welcome_message()
     location_of_soldier(tuple_location)
     if not state["living"]:
         draw_lose_message()
@@ -103,3 +104,4 @@ def draw_game(tuple_location, state):
         state["is_window_open"] = False
 
     pygame.display.flip()
+
