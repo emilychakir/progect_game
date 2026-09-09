@@ -8,10 +8,16 @@ import soldier
 Screen = screen.screen
 state = {
     "is_window_open": True,
+    "living" : True,
+    "win" : False
 # "state": consts.RUNNING_STATE
 }
 
 def handle_user_events():
+    if check_touch_flag(soldier.create_solider_body(), game_field.places_with_flag()):
+        state["living"] = False
+    if check_touch_mines(soldier.create_solider_legs(), game_field.mines_places()):
+        state["win"] = True
     for event in pygame.event.get():
 
         if event.type == pygame.QUIT:
@@ -23,7 +29,7 @@ def handle_user_events():
                     soldier.player["position_y"] -= 1
 
             elif event.key == pygame.K_DOWN:
-                if soldier.player["position_y"] < consts.BOARD_COLS - 1:
+                if soldier.player["position_y"] < consts.BOARD_ROWS - 1:
                     soldier.player["position_y"] += 1
 
 
@@ -66,10 +72,7 @@ def main():
     while state["is_window_open"]:
         handle_user_events()
         screen.draw_game(soldier.soldier_location())
-        if check_touch_flag(soldier.create_solider_body(), game_field.places_with_flag()):
-            print("you won")
-        if check_touch_mines(soldier.create_solider_legs(), game_field.mines_places()):
-            print("you lost")
+
 
 
 
