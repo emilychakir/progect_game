@@ -24,8 +24,12 @@ def handle_user_events():
 
         if check_touch_flag(soldier.create_solider_body(), game_field.places_with_flag()):
             state["win"] = True
+
+
         if check_touch_mines(soldier.create_solider_legs(), game_field.mines_places()):
             state["living"] = False
+
+
 
         if event.type == pygame.QUIT:
             state["is_window_open"] = False
@@ -48,10 +52,10 @@ def handle_user_events():
             elif event.key == pygame.K_RIGHT:
                 if soldier.player["position_x"] < consts.BOARD_COLS - consts.SOLDIER_COLS:
                  soldier.player["position_x"] += 1
-
-            elif event.key == pygame.K_RIGHT:
-                screen.draw_matrix()
-                pygame.time.wait(1000)
+            #
+            # elif event.key == pygame.K:
+            #     screen.draw_matrix()
+            #     pygame.time.wait(1000)
 
 pygame.display.set_caption('the flag')
 # flags = game_field.places_with_flag()
@@ -71,8 +75,7 @@ def check_touch_mines(legs, mines):
             return True
     return False
 
-# def check_if_location_legal():
-#     if soldier.player["position_x"]+1>consts.BOARD_COLS:
+
 
 
 def main():
