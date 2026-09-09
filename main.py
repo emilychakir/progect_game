@@ -17,7 +17,7 @@ state = {
     "win" : False
 # "state": consts.RUNNING_STATE
 }
-
+current_screen=Screen
 def handle_user_events():
 
     for event in pygame.event.get():
@@ -49,8 +49,9 @@ def handle_user_events():
                 if soldier.player["position_x"] < consts.BOARD_COLS - consts.SOLDIER_COLS:
                  soldier.player["position_x"] += 1
 
-            elif event.key == pygame.K_RIGHT:
-                screen.draw_matrix()
+            elif event.key == pygame.K_KP_ENTER:
+                pygame.display.flip()
+                current_screen=screen.draw_matrix()
                 pygame.time.wait(1000)
 
 
