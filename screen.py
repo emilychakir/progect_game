@@ -14,7 +14,7 @@ def draw_background():
 def locations():
     location = []
     for i in range(20):
-        x = random.randint(0 + 30, consts.WINDOW_WIDTH - 30)
+        x=random.randint(0 + 30, consts.WINDOW_WIDTH - 30)
         y = random.randint(0 + 20, consts.WINDOW_HEIGHT - 20)
         tup = (x, y)
         location.append(tup)
