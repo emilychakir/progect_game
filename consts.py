@@ -49,10 +49,15 @@ MINE_COLS = 3
 #bush
 bush_ROWS = 1
 bush_COLS = 3
+mine_png = pygame.image.load("mine.png")
 bush_img = pygame.image.load("grass.png")
 img_solider = pygame.image.load("soldier.png")
 flag_img = pygame.image.load("flag.png")
+night_soldier_img = pygame.image.load("soldier_night.png")
 
+
+night_soldier = pygame.transform.scale(night_soldier_img, (40, 80))
+mine = pygame.transform.scale(mine_png, (60, 20))
 soldier = pygame.transform.scale(img_solider, (40, 80))
 flag = pygame.transform.scale(flag_img, (80, 60))
 bush = pygame.transform.scale(bush_img, (60, 40))

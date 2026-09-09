@@ -58,12 +58,14 @@ soldier_location = starting_pos_soldier()
 
 def place_mines(places_of_flag, places_of_soldier):
     counter = 0
-    while counter < 20:
+    while counter < 10:
         rand_x = random.randint(0, consts.BOARD_ROWS - 1)
         rand_y = random.randint(0, consts.BOARD_COLS - 3)
         tup = (rand_x, rand_y)
-        if tup not in places_of_soldier and tup not in places_of_flag and place_current_mine(tup, board) != False:
-            counter += 1
+        if board[rand_x][rand_y] == consts.E and board[rand_x][rand_y + 1] == consts.E and board[rand_x][rand_y + 2] == consts.E:
+            if tup not in places_of_soldier and tup not in places_of_flag:
+                if place_current_mine(tup, board) != False:
+                    counter += 1
     return board
 
 
@@ -93,3 +95,4 @@ def return_board():
 
 board1=return_board()
 
+print((mines_places()))
