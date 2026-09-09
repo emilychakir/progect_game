@@ -9,8 +9,8 @@ player = {
 
 def create_solider_body():
     list_of_solider_body_places = []
-    x_solider = player["position_x"]
-    y_solider = player["position_y"]
+    y_solider = player["position_x"]
+    x_solider = player["position_y"]
     for x in range(x_solider, x_solider + consts.SOLDIER_BODY_ROWS):
         for y in range(y_solider, y_solider + consts.SOLDIER_COLS):
             tup = (x, y)

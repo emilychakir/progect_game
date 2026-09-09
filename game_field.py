@@ -86,7 +86,7 @@ def mines_places():
                 tup = (x, y)
                 mine_places.append(tup)
     return mine_places
-mines_places=mines_places()
+
 
 def return_board():
     return place_mines(places_of_flag, soldier_location)

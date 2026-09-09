@@ -54,7 +54,7 @@ def draw_message(message, font_size, color, location):
     screen.blit(text_img, location)
 
 
-def draw_matrix(board1):
+def draw_matrix():
     screen.fill((0, 0, 0))
     for r in range(consts.BOARD_ROWS):
         for c in range(consts.BOARD_COLS):
@@ -76,17 +76,17 @@ def draw_matrix(board1):
                          )
 
 
-
 def draw_game(tuple_location, state):
     draw_background()
     draw_bush(location)
     flag_location()
-    location_of_soldier(tuple_location)
-    if state["state"] == consts.LOSE_STATE:
+    if not state["living"]:
         draw_lose_message()
-
-    elif state["state"] == consts.WIN_STATE:
+    elif state["win"]:
         draw_win_message()
 
+
+
+    location_of_soldier(tuple_location)
     # starting_location(consts.img_solider, consts.flag_img)
     pygame.display.flip()
