@@ -78,7 +78,7 @@ def draw_game(tuple_location):
     draw_background()
     draw_bush(location)
     flag_location()
-    draw_matrix()
+
     location_of_soldier(tuple_location)
     # starting_location(consts.img_solider, consts.flag_img)
     pygame.display.flip()

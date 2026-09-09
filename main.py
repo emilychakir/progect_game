@@ -1,5 +1,8 @@
 import pygame.display
 from sys import exit
+
+from pygame import event
+
 import screen
 import screen
 import consts
@@ -45,7 +48,9 @@ def handle_user_events():
             elif event.key == pygame.K_RIGHT:
                 if soldier.player["position_x"] < consts.BOARD_COLS - 1:
                  soldier.player["position_x"] += 1
-
+            elif event.key == pygame.K_RIGHT:
+                screen.draw_matrix()
+                pygame.time.wait(1000)
 
 
 pygame.display.set_caption('the flag')
@@ -78,6 +83,7 @@ def main():
     while state["is_window_open"]:
         handle_user_events()
         screen.draw_game(soldier.soldier_location())
+
 
 
 
