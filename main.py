@@ -5,6 +5,8 @@ import screen
 import consts
 import game_field
 import soldier
+from soldier import player
+
 Screen = screen.screen
 state = {
     "is_window_open": True,
@@ -25,6 +27,7 @@ def handle_user_events():
             elif event.key == pygame.K_DOWN:
                 if soldier.player["position_y"] < consts.BOARD_COLS - 1:
                     soldier.player["position_y"] += 1
+
 
 
 
@@ -56,6 +59,9 @@ def check_touch_mines(legs, mines):
         if leg_place in mines:
             return True
     return False
+
+# def check_if_location_legal():
+#     if soldier.player["position_x"]+1>consts.BOARD_COLS:
 
 
 def main():
