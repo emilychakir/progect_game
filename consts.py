@@ -8,8 +8,19 @@ BACKGROUND_COLOR = (0,100,0)
 color_line=(144, 238, 144)
 
 CELL_SIZE = 20 # pixels per cell
-WINDOW_WIDTH = BOARD_COLS * CELL_SIZE
-WINDOW_HEIGHT = BOARD_ROWS * CELL_SIZE
+WINDOW_WIDTH = BOARD_COLS * CELL_SIZE + 20
+WINDOW_HEIGHT = BOARD_ROWS * CELL_SIZE + 60
+
+FONT_NAME = "Calibri"
+BLACK = (0, 0, 0)
+LOSE_FONT_SIZE = int(0.15 * WINDOW_WIDTH)
+LOSE_COLOR = BLACK
+LOSE_LOCATION = \
+    (0.2 * WINDOW_WIDTH, WINDOW_HEIGHT / 2 - (LOSE_FONT_SIZE / 2))
+WIN_FONT_SIZE = LOSE_FONT_SIZE
+WIN_COLOR = (89, 89, 89)
+WIN_LOCATION = \
+    (0.2 * WINDOW_WIDTH, WINDOW_HEIGHT / 2 - (WIN_FONT_SIZE / 2))
 
 # flag
 FLAG_ROWS = 3
@@ -32,9 +43,7 @@ MINES_COUNT = 20
 MINE_ROWS = 1
 MINE_COLS = 3
 
-bush_img=pygame.image.load('grass.png')
-img_soldier=pygame.image.load('soldier.png')
-flag_img=pygame.image.load('flag.png')
+
 
 
 #bush
