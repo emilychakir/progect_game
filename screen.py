@@ -75,7 +75,6 @@ def draw_matrix():
                           consts.CELL_SIZE),
                          )
 
-
 def draw_game(tuple_location, state):
     draw_background()
     draw_bush(location)
