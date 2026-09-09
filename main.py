@@ -51,7 +51,7 @@ def handle_user_events():
             elif event.key == pygame.K_RIGHT:
                 if soldier.player["position_x"] < consts.BOARD_COLS - consts.SOLDIER_COLS:
                  soldier.player["position_x"] += 1
-            elif event.key== pygame.K_RIGHT:
+            elif event.key == pygame.K_RIGHT:
                 screen.draw_matrix()
                 pygame.time.wait(1000)
 
