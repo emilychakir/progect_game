@@ -1,5 +1,9 @@
 import pygame.image
 
+BLACK = (0, 0, 0)
+white=(255, 255, 255)
+message_COLOR = white
+
 BOARD_ROWS = 25
 BOARD_COLS = 50
 E = "E"
@@ -12,7 +16,7 @@ WINDOW_WIDTH = BOARD_COLS * CELL_SIZE
 WINDOW_HEIGHT = BOARD_ROWS * CELL_SIZE
 
 FONT_NAME = "Calibri"
-BLACK = (0, 0, 0)
+
 LOSE_FONT_SIZE = int(0.15 * WINDOW_WIDTH)
 LOSE_COLOR = BLACK
 LOSE_LOCATION = \
@@ -44,7 +48,10 @@ MINE_ROWS = 1
 MINE_COLS = 3
 
 
-
+Welcome_text="Welcome to The Flag game. Have Fun!"
+message_font="Calibri"
+message_FONT_SIZE = 20
+message_LOCATION = (0,0)
 
 #bush
 bush_ROWS = 1
