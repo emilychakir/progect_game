@@ -1,7 +1,9 @@
 import pygame.display
 from sys import exit
-
+import  time
 from pygame import event
+import os
+os.environ["SDL_VIDEO_CENTERED"] = "1"
 
 import screen
 import screen
@@ -18,8 +20,12 @@ state = {
     "current_screen" : Screen
 # "state": consts.RUNNING_STATE
 }
+clock = pygame.time.Clock()
+press_start_time = None
+
 
 def handle_user_events():
+    press_start_time = None
 
     for event in pygame.event.get():
 
@@ -55,11 +61,40 @@ def handle_user_events():
                  soldier.player["position_x"] += 1
             #
             elif event.key == pygame.K_RETURN:
-                print("sdfdf")
                 screen.draw_matrix()
                 screen.location_of_night_soldier(soldier.soldier_location())
                 pygame.display.flip()
                 pygame.time.wait(1000)
+
+            elif event.key == pygame.K_1 :
+                press_start_time = time.time()
+                if event.type == pygame.KEYUP:
+                    duration = time.time() - press_start_time
+
+                    # Determine if it was long or short
+                    if duration >= consts.LONG_PRESS_THRESHOLD:
+                        print(f"Long Press detected! (Duration: {duration:.2f} seconds)")
+                    else:
+                        print(f"Short Press detected! (Duration: {duration:.2f} seconds)")
+
+
+
+
+            # elif event.key == pygame.K_2:
+            #
+            # elif event.key == pygame.K_3:
+            #
+            # elif event.key == pygame.K_4:
+            #
+            # elif event.key == pygame.K_5:
+            #
+            # elif event.key == pygame.K_6:
+            #
+            # elif event.key == pygame.K_7:
+            #
+            # elif event.key == pygame.K_8:
+            #
+            # elif event.key == pygame.K_9:
 
 
 pygame.display.set_caption('the flag')

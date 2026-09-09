@@ -51,7 +51,7 @@ MINE_COLS = 3
 Welcome_text="Welcome to The Flag game. Have Fun!"
 message_font="Calibri"
 message_FONT_SIZE = 20
-message_LOCATION = (0,0)
+message_LOCATION = (30,0)
 
 #bush
 bush_ROWS = 1
@@ -62,7 +62,7 @@ img_solider = pygame.image.load("soldier.png")
 flag_img = pygame.image.load("flag.png")
 night_soldier_img = pygame.image.load("soldier_night.png")
 
-
+LONG_PRESS_THRESHOLD=3
 night_soldier = pygame.transform.scale(night_soldier_img, (40, 80))
 mine = pygame.transform.scale(mine_png, (60, 20))
 soldier = pygame.transform.scale(img_solider, (40, 80))

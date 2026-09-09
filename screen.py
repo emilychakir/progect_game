@@ -55,7 +55,7 @@ def draw_win_message():
                  consts.WIN_COLOR, consts.WIN_LOCATION, )
 
 def draw_welcome_message():
-        draw_message("Welcome to The Flag game. Have Fun!", consts.message_FONT_SIZE,
+        draw_message("Welcome to The Flag game.\n Have Fun!", consts.message_FONT_SIZE,
                      consts.message_COLOR, consts.message_LOCATION, )
 
 
