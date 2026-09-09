@@ -55,7 +55,6 @@ def starting_pos_soldier():
 soldier_location = starting_pos_soldier()
 
 
-
 def place_mines(places_of_flag, places_of_soldier):
     counter = 0
     while counter < 10:
