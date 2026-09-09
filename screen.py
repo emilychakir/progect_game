@@ -51,8 +51,8 @@ def draw_win_message():
 def draw_message(message, font_size, color, location):
     font = pygame.font.SysFont(consts.FONT_NAME, font_size)
     text_img = font.render(message, True, color)
-
-    def draw_matrix(board1):
+    screen.blit(text_img, location)
+def draw_matrix(board1):
         screen.fill((0, 0, 0))
         for r in range(consts.BOARD_ROWS):
             for c in range(consts.BOARD_COLS):
@@ -73,11 +73,12 @@ def draw_message(message, font_size, color, location):
                               consts.CELL_SIZE),
                              )
 
-    screen.blit(text_img, location)
+
 def draw_game(tuple_location):
     draw_background()
     draw_bush(location)
     flag_location()
+    draw_matrix()
     location_of_soldier(tuple_location)
     # starting_location(consts.img_solider, consts.flag_img)
     pygame.display.flip()
