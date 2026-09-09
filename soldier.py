@@ -1,9 +1,15 @@
 import consts
 from consts import CELL_SIZE
+import game_field
+# import screen
+
 
 player = {
         "position_x": 0,
-        "position_y": 0
+        "position_y": 0,
+    "mines_places" : game_field.mines_places(),
+
+
 }
 
 def create_solider_body():
