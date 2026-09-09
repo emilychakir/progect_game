@@ -39,21 +39,24 @@ def location_of_soldier(location):
 
 
 
-def draw_lose_message():
-    pygame.time.set_timer(pygame.USEREVENT + 1, 3000)
+def draw_lose_message(state):
+
     draw_message("you lost", consts.LOSE_FONT_SIZE,
-                 consts.LOSE_COLOR, consts.LOSE_LOCATION)
+                 consts.LOSE_COLOR, consts.LOSE_LOCATION, state)
 
 
-def draw_win_message():
-    pygame.time.set_timer(pygame.USEREVENT + 1, 3000)
+
+def draw_win_message(state):
     draw_message("you won", consts.WIN_FONT_SIZE,
-                 consts.WIN_COLOR, consts.WIN_LOCATION)
+                 consts.WIN_COLOR, consts.WIN_LOCATION, state)
 
-def draw_message(message, font_size, color, location):
+
+
+def draw_message(message, font_size, color, location, state):
     font = pygame.font.SysFont(consts.FONT_NAME, font_size)
     text_img = font.render(message, True, color)
     screen.blit(text_img, location)
+
 
 
 def draw_matrix():
@@ -81,13 +84,17 @@ def draw_game(tuple_location, state):
     draw_background()
     draw_bush(location)
     flag_location()
-    if not state["living"]:
-        draw_lose_message()
-    if state["win"]:
-        draw_win_message()
-
-
-
     location_of_soldier(tuple_location)
-    # starting_location(consts.img_solider, consts.flag_img)
+    if not state["living"]:
+        draw_lose_message(state)
+        pygame.display.flip()
+        pygame.time.wait(3000)
+        state["is_window_open"] = False
+
+    if state["win"]:
+        draw_win_message(state)
+        pygame.display.flip()
+        pygame.time.wait(3000)
+        state["is_window_open"] = False
+
     pygame.display.flip()
