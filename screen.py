@@ -68,7 +68,7 @@ def draw_matrix():
                               consts.CELL_SIZE),
                              1)
     for mine in range(len(game_field.mines_places)):
-        mine = game_field.mines_places[mine]
+        mine= game_field.mines_places[mine]
         pygame.draw.rect(screen,
                          (136, 8, 8),
                          (mine[0] * consts.CELL_SIZE,
