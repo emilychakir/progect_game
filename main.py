@@ -53,7 +53,6 @@ def handle_user_events():
                 screen.draw_matrix()
                 pygame.time.wait(1000)
 
-
 pygame.display.set_caption('the flag')
 # flags = game_field.places_with_flag()
 # body = soldier.create_solider_body()
