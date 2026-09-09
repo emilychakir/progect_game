@@ -1,9 +1,7 @@
 import pygame.display
 from sys import exit
-import  time
+
 from pygame import event
-import os
-os.environ["SDL_VIDEO_CENTERED"] = "1"
 
 import screen
 import screen
@@ -12,35 +10,38 @@ import game_field
 import soldier
 from soldier import player
 
-Screen = screen.screen
+Screen = screen.Screen
 state = {
     "is_window_open": True,
     "living" : True,
     "win" : False,
-    "current_screen" : Screen
+    "time_down" : 0.0,
+    "time_elapsed" : 0.0
+
 # "state": consts.RUNNING_STATE
 }
-clock = pygame.time.Clock()
-press_start_time = None
+
 
 
 def handle_user_events():
-    press_start_time = None
+
 
     for event in pygame.event.get():
+
 
         if check_touch_flag(soldier.create_solider_body(), game_field.places_with_flag()):
             state["win"] = True
 
 
-        if check_touch_mines(soldier.create_solider_legs(), game_field.mines_places()):
+        if check_touch_mines(soldier.create_solider_legs(), soldier.player["mines_places"]):
             state["living"] = False
 
-
-
+        # time_down = 0
         if event.type == pygame.QUIT:
             state["is_window_open"] = False
+
         elif event.type == pygame.KEYDOWN:
+
 
             if event.key == pygame.K_UP:
                 if soldier.player["position_y"] >=  1:
@@ -61,40 +62,36 @@ def handle_user_events():
                  soldier.player["position_x"] += 1
             #
             elif event.key == pygame.K_RETURN:
+                print("sdfdf")
                 screen.draw_matrix()
                 screen.location_of_night_soldier(soldier.soldier_location())
                 pygame.display.flip()
                 pygame.time.wait(1000)
 
-            elif event.key == pygame.K_1 :
-                press_start_time = time.time()
-                if event.type == pygame.KEYUP:
-                    duration = time.time() - press_start_time
+            elif event.key == pygame.K_1:
+                state["time_down"] = pygame.time.get_ticks()
+            elif event.key == pygame.K_2:
+                state["time_down"] = pygame.time.get_ticks()
+            elif event.key == pygame.K_3:
+                state["time_down"] = pygame.time.get_ticks()
+            elif event.key == pygame.K_4:
+                state["time_down"] = pygame.time.get_ticks()
+            elif event.key == pygame.K_5:
+                state["time_down"] = pygame.time.get_ticks()
+            elif event.key == pygame.K_6:
+                state["time_down"] = pygame.time.get_ticks()
+            elif event.key == pygame.K_7:
+                state["time_down"] = pygame.time.get_ticks()
+            elif event.key == pygame.K_8:
+                state["time_down"] = pygame.time.get_ticks()
+            elif event.key == pygame.K_9:
+                state["time_down"] = pygame.time.get_ticks()
+        elif event.type == pygame.KEYUP:
+            if state["time_down"]!= 0:
+                state["time_elapsed"] = (pygame.time.get_ticks() - state["time_down"]) / 1000.0
+                print("duration: ", state["time_elapsed"])
+                state["time_down"] = 0
 
-                    # Determine if it was long or short
-                    if duration >= consts.LONG_PRESS_THRESHOLD:
-                        print(f"Long Press detected! (Duration: {duration:.2f} seconds)")
-                    else:
-                        print(f"Short Press detected! (Duration: {duration:.2f} seconds)")
-
-
-
-
-            # elif event.key == pygame.K_2:
-            #
-            # elif event.key == pygame.K_3:
-            #
-            # elif event.key == pygame.K_4:
-            #
-            # elif event.key == pygame.K_5:
-            #
-            # elif event.key == pygame.K_6:
-            #
-            # elif event.key == pygame.K_7:
-            #
-            # elif event.key == pygame.K_8:
-            #
-            # elif event.key == pygame.K_9:
 
 
 pygame.display.set_caption('the flag')

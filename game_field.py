@@ -55,7 +55,6 @@ def starting_pos_soldier():
 soldier_location = starting_pos_soldier()
 
 
-
 def place_mines(places_of_flag, places_of_soldier):
     counter = 0
     while counter < 10:
@@ -70,7 +69,7 @@ def place_mines(places_of_flag, places_of_soldier):
 
 
 
-place_mines(places_of_flag, soldier_location)
+board2 = place_mines(places_of_flag, soldier_location)
 
 
 def print_board():
@@ -95,4 +94,3 @@ def return_board():
 
 board1=return_board()
 
-print((mines_places()))
