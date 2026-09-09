@@ -16,7 +16,8 @@ state = {
     "living" : True,
     "win" : False,
     "time_down" : 0.0,
-    "time_elapsed" : 0.0
+    "time_elapsed" : 0.0,
+    "long_or_short":"short"
 
 # "state": consts.RUNNING_STATE
 }
@@ -92,6 +93,11 @@ def handle_user_events():
                 print("duration: ", state["time_elapsed"])
                 state["time_down"] = 0
 
+def check_time():
+    if state["time_elapsed"]>1:
+        state["long_or_short"]="long"
+    else:
+        state["long_or_short"]="short"
 
 
 pygame.display.set_caption('the flag')
