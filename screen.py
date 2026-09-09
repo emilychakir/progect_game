@@ -2,6 +2,7 @@ import  pygame
 import random
 import consts
 import soldier
+import game_field
 
 screen = pygame.display.set_mode(
         (consts.WINDOW_WIDTH, consts.WINDOW_HEIGHT))
@@ -51,6 +52,26 @@ def draw_message(message, font_size, color, location):
     font = pygame.font.SysFont(consts.FONT_NAME, font_size)
     text_img = font.render(message, True, color)
 
+    def draw_matrix(board1):
+        screen.fill((0, 0, 0))
+        for r in range(consts.BOARD_ROWS):
+            for c in range(consts.BOARD_COLS):
+                pygame.draw.rect(screen,
+                                 (144, 238, 144),
+                                 (c * consts.CELL_SIZE,
+                                  r * consts.CELL_SIZE,
+                                  consts.CELL_SIZE,
+                                  consts.CELL_SIZE),
+                                 1)
+        for mine in range(len(game_field.mines_places)):
+            mine = game_field.mines_places[mine]
+            pygame.draw.rect(screen,
+                             (136, 8, 8),
+                             (mine[0] * consts.CELL_SIZE,
+                              mine[1] * consts.CELL_SIZE,
+                              consts.CELL_SIZE,
+                              consts.CELL_SIZE),
+                             )
 
     screen.blit(text_img, location)
 def draw_game(tuple_location):
