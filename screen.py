@@ -51,33 +51,42 @@ def draw_win_message():
 def draw_message(message, font_size, color, location):
     font = pygame.font.SysFont(consts.FONT_NAME, font_size)
     text_img = font.render(message, True, color)
+    screen.blit(text_img, location)
 
-    def draw_matrix(board1):
-        screen.fill((0, 0, 0))
-        for r in range(consts.BOARD_ROWS):
-            for c in range(consts.BOARD_COLS):
-                pygame.draw.rect(screen,
-                                 (144, 238, 144),
-                                 (c * consts.CELL_SIZE,
-                                  r * consts.CELL_SIZE,
-                                  consts.CELL_SIZE,
-                                  consts.CELL_SIZE),
-                                 1)
-        for mine in range(len(game_field.mines_places)):
-            mine = game_field.mines_places[mine]
+
+def draw_matrix(board1):
+    screen.fill((0, 0, 0))
+    for r in range(consts.BOARD_ROWS):
+        for c in range(consts.BOARD_COLS):
             pygame.draw.rect(screen,
-                             (136, 8, 8),
-                             (mine[0] * consts.CELL_SIZE,
-                              mine[1] * consts.CELL_SIZE,
+                             (144, 238, 144),
+                             (c * consts.CELL_SIZE,
+                              r * consts.CELL_SIZE,
                               consts.CELL_SIZE,
                               consts.CELL_SIZE),
-                             )
+                             1)
+    for mine in range(len(game_field.mines_places)):
+        mine = game_field.mines_places[mine]
+        pygame.draw.rect(screen,
+                         (136, 8, 8),
+                         (mine[0] * consts.CELL_SIZE,
+                          mine[1] * consts.CELL_SIZE,
+                          consts.CELL_SIZE,
+                          consts.CELL_SIZE),
+                         )
 
-    screen.blit(text_img, location)
-def draw_game(tuple_location):
+
+
+def draw_game(tuple_location, state):
     draw_background()
     draw_bush(location)
     flag_location()
     location_of_soldier(tuple_location)
+    if state["state"] == consts.LOSE_STATE:
+        draw_lose_message()
+
+    elif state["state"] == consts.WIN_STATE:
+        draw_win_message()
+
     # starting_location(consts.img_solider, consts.flag_img)
     pygame.display.flip()
