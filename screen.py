@@ -40,11 +40,13 @@ def location_of_soldier(location):
 
 
 def draw_lose_message():
+    pygame.time.set_timer(pygame.USEREVENT + 1, 3000)
     draw_message("you lost", consts.LOSE_FONT_SIZE,
                  consts.LOSE_COLOR, consts.LOSE_LOCATION)
 
 
 def draw_win_message():
+    pygame.time.set_timer(pygame.USEREVENT + 1, 3000)
     draw_message("you won", consts.WIN_FONT_SIZE,
                  consts.WIN_COLOR, consts.WIN_LOCATION)
 
@@ -66,7 +68,7 @@ def draw_matrix():
                               consts.CELL_SIZE),
                              1)
     for mine in range(len(game_field.mines_places)):
-        mine = game_field.mines_places[mine]
+        mine= game_field.mines_places[mine]
         pygame.draw.rect(screen,
                          (136, 8, 8),
                          (mine[0] * consts.CELL_SIZE,
